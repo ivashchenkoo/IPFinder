@@ -1,0 +1,140 @@
+﻿<Window x:Class="IPFinder.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:IPFinder"
+        xmlns:vm="clr-namespace:IPFinder.ViewModels"
+        mc:Ignorable="d"
+        Title="IP Finder" Height="370" Width="430">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <system:Double x:Key="TextBoxWidth">150</system:Double>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0"
+                 Grid.Column="0"
+                 Text="{Binding SearchIP}"
+                 Style="{StaticResource BaseTextBox}"
+                 HorizontalAlignment="Right"
+                 Margin="5"
+                 Width="200"
+                 Tag="127.0.0.1"/>
+        
+        <Button Grid.Column="1"
+                Grid.Row="0"
+                Command="{Binding LoadIPData}"
+                Margin="5"
+                Width="200"
+                HorizontalAlignment="Left">
+            Search
+        </Button>
+        
+        <WrapPanel Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   DataContext="{Binding IPConfig}">
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Query}"
+                     Tag="IP"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Continent}"
+                     Tag="Continent"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Country}"
+                     Tag="Country"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Region}"
+                     Tag="Region"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding RegionName}"
+                     Tag="Region Name"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding City}"
+                     Tag="City"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding District}"
+                     Tag="District"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding PostCode}"
+                     Tag="PostCode"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Latitude}"
+                     Tag="Latitude"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Longitude}"
+                     Tag="Longitude"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Timezone}"
+                     Tag="Timezone"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding Currency}"
+                     Tag="Currency"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding ProviderDescription}"
+                     Tag="Provider Description"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+            <TextBox Style="{StaticResource BaseTextBox}"
+                     Text="{Binding ProviderName}"
+                     Tag="Provider Name"
+                     Width="{StaticResource TextBoxWidth}"
+                     Margin="5"/>
+            
+        </WrapPanel>
+        
+    </Grid>
+</Window>
